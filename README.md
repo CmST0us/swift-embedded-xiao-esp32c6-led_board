@@ -124,6 +124,4 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 ## 📫 Contact
 
-Your Name - [@yourtwitter](https://twitter.com/yourtwitter)
-
-Project Link: [https://github.com/yourusername/swift-embedded-xiao-esp32c6-led_board](https://github.com/yourusername/swift-embedded-xiao-esp32c6-led_board) 
+Project Link: [https://github.com/CmST0us/swift-embedded-xiao-esp32c6-led_board](https://github.com/CmST0us/swift-embedded-xiao-esp32c6-led_board) 
