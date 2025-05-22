@@ -70,6 +70,11 @@ public class LEDStrip {
 
         self.ledStrip = ledStrip
     }
+
+    deinit {
+        guard let ledStrip = ledStrip else { return }
+        led_strip_del(ledStrip)
+    }
     
     /// Sets the color of a single LED using RGBW values.
     ///
@@ -112,7 +117,14 @@ public class LEDStrip {
     }   
 
     /// Refreshes the LED strip, sending the current color values to all LEDs.
-    public func refresh() {
-        led_strip_refresh(ledStrip)
+    @discardableResult
+    public func refresh() -> esp_err_t {
+        return led_strip_refresh(ledStrip)
+    }
+
+    /// Clears all LEDs on the strip.
+    @discardableResult
+    public func clear() -> esp_err_t {
+        return led_strip_clear(ledStrip)
     }
 }
