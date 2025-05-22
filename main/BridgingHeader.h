@@ -15,3 +15,6 @@
 #include "freertos/task.h"
 #include "driver/gpio.h"
 #include "sdkconfig.h"
+#include "led_strip.h"
+
+#include "rtos_utils.h"

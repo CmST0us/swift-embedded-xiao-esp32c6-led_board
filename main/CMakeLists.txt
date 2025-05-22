@@ -62,6 +62,9 @@ target_sources(${COMPONENT_LIB}
     PRIVATE
     Main.swift
     Led.swift
+    LEDStrip.swift
+
+    rtos_utils.c
 )
 
 add_custom_command(
