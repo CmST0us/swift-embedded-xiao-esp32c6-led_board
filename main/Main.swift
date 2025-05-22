@@ -9,7 +9,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-// 彩虹波浪效果
+/// Rainbow wave effect that creates a flowing rainbow pattern
 func rainbowWave(ledStrip: LEDStrip) {
     for offset in 0..<60 {
         for i: UInt32 in 0..<60 {
@@ -22,24 +22,24 @@ func rainbowWave(ledStrip: LEDStrip) {
     }
 }
 
-// 矩阵雨效果
+/// Matrix rain effect inspired by "The Matrix" movie
 func matrixRain(ledStrip: LEDStrip) {
     var drops = [Int](repeating: 0, count: 6)
     
     for _ in 0..<100 {
-        // 更新每个雨滴
+        // Update each raindrop
         for col in 0..<6 {
             if drops[col] >= 10 {
                 drops[col] = 0
             }
             
-            // 清除旧位置
+            // Clear old position
             if drops[col] > 0 {
                 let pos = (drops[col] - 1) * 6 + col
                 ledStrip.setPixel(index: UInt32(pos), r: 0, g: 0, b: 0)
             }
             
-            // 设置新位置
+            // Set new position
             let pos = drops[col] * 6 + col
             ledStrip.setPixel(index: UInt32(pos), r: 0, g: 5, b: 0)
             
@@ -50,15 +50,15 @@ func matrixRain(ledStrip: LEDStrip) {
     }
 }
 
-// 螺旋效果
+/// Spiral effect with color cycling
 func spiralEffect(ledStrip: LEDStrip) {
     let colors: [(UInt32, UInt32, UInt32)] = [
-        (5, 0, 0),    // 红
-        (0, 5, 0),    // 绿
-        (0, 0, 5),    // 蓝
-        (5, 5, 0),    // 黄
-        (5, 0, 5),    // 紫
-        (0, 5, 5)     // 青
+        (5, 0, 0),    // Red
+        (0, 5, 0),    // Green
+        (0, 0, 5),    // Blue
+        (5, 5, 0),    // Yellow
+        (5, 0, 5),    // Purple
+        (0, 5, 5)     // Cyan
     ]
     
     for _ in 0..<3 {
@@ -80,7 +80,7 @@ func spiralEffect(ledStrip: LEDStrip) {
     }
 }
 
-// HSV转RGB辅助函数
+/// Helper function to convert HSV color to RGB
 func hsvToRgb(h: Float, s: Float, v: Float) -> (Float, Float, Float) {
     let i = Int(h * 6)
     let f = h * 6 - Float(i)
@@ -108,15 +108,15 @@ func main() {
     print("LED strip created")
 
     while true {
-        // 彩虹波浪效果
+        // Rainbow wave effect
         rainbowWave(ledStrip: ledStrip)
         delay_ms(500)
         
-        // 矩阵雨效果
+        // Matrix rain effect
         matrixRain(ledStrip: ledStrip)
         delay_ms(500)
         
-        // 螺旋效果
+        // Spiral effect
         spiralEffect(ledStrip: ledStrip)
         delay_ms(500)
     }
